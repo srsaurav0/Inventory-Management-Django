@@ -1,0 +1,13 @@
+[
+    {
+        "USA": "us",
+        "locations": [
+            {
+                "Florida": "us/florida"
+            },
+            {
+                "Texas": "us/texas"
+            }
+        ]
+    }
+]
