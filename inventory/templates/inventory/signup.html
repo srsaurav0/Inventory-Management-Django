@@ -4,13 +4,103 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Property Owner Sign-Up</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f9;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        .signup-container {
+            background: white;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
+            padding: 20px 40px;
+            width: 100%;
+            max-width: 400px;
+            text-align: center;
+        }
+
+        h1 {
+            font-size: 1.8rem;
+            color: #333;
+            margin-bottom: 20px;
+        }
+
+        form {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        label {
+            text-align: left;
+            font-size: 0.9rem;
+            color: #555;
+        }
+
+        input[type="text"], input[type="email"], input[type="password"] {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-size: 1rem;
+        }
+
+        button {
+            padding: 10px;
+            font-size: 1rem;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        button:hover {
+            background-color: #45a049;
+        }
+
+        .form-footer {
+            font-size: 0.8rem;
+            color: #777;
+            margin-top: 10px;
+        }
+
+        .form-footer a {
+            color: #4CAF50;
+            text-decoration: none;
+        }
+
+        .form-footer a:hover {
+            text-decoration: underline;
+        }
+    </style>
 </head>
 <body>
-    <h1>Sign Up as a Property Owner</h1>
-    <form method="post">
-        {% csrf_token %}
-        {{ form.as_p }}
-        <button type="submit">Sign Up</button>
-    </form>
+    <div class="signup-container">
+        <h1>Sign Up as a Property Owner</h1>
+        <form method="post">
+            {% csrf_token %}
+            {{ form.as_p }}
+
+            <button type="submit">Sign Up</button>
+        </form>
+        <div class="messages">
+            {% if messages %}
+                {% for message in messages %}
+                    <div class="alert alert-{{ message.tags }}">
+                        {{ message }}
+                    </div>
+                {% endfor %}
+            {% endif %}
+        </div>        
+    </div>
 </body>
 </html>
