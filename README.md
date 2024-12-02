@@ -20,7 +20,6 @@ http://localhost:8000/admin/
 
 Accommodation.objects.all().delete()
 Location.objects.all().delete()
-Accommodation.objects.all().delete()
 
 python manage.py shell
 exec(open('inventory/scripts/populate_data.py').read())
