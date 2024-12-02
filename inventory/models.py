@@ -1,11 +1,12 @@
 from django.contrib.gis.db import models
 from django.contrib.auth.models import User
 
+
 class Location(models.Model):
     id = models.CharField(max_length=20, primary_key=True)
     title = models.CharField(max_length=100)
     center = models.PointField()  # PostGIS Point field
-    parent = models.ForeignKey('self', null=True, blank=True, on_delete=models.CASCADE)
+    parent = models.ForeignKey("self", null=True, blank=True, on_delete=models.CASCADE)
     location_type = models.CharField(max_length=20)
     country_code = models.CharField(max_length=2)
     state_abbr = models.CharField(max_length=3, blank=True)
@@ -47,4 +48,3 @@ class LocalizeAccommodation(models.Model):
 
     def __str__(self):
         return f"{self.property.title} - {self.language}"
-

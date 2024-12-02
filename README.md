@@ -1,3 +1,7 @@
+python3 -m venv .venv
+source .venv/bin/activate
+
+
 apt-get update && apt-get install -y nano
 
 nano /app/inventory/tests/test_models.py
