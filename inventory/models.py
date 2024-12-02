@@ -27,7 +27,8 @@ class Accommodation(models.Model):
     review_score = models.DecimalField(max_digits=3, decimal_places=1, default=0)
     usd_rate = models.DecimalField(max_digits=10, decimal_places=2)
     center = models.PointField()
-    images = models.JSONField(default=list)
+    images = models.JSONField(default=list, blank=True)
+    image_file = models.ImageField(upload_to='accommodation_images/', null=True, blank=True)
     location = models.ForeignKey(Location, on_delete=models.CASCADE)
     amenities = models.JSONField(default=list)
     user = models.ForeignKey(User, on_delete=models.CASCADE)
@@ -37,6 +38,13 @@ class Accommodation(models.Model):
 
     def __str__(self):
         return self.title
+
+
+class AccommodationImage(models.Model):
+    accommodation = models.ForeignKey(
+        'Accommodation', related_name='uploaded_images', on_delete=models.CASCADE
+    )
+    image_file = models.ImageField(upload_to='accommodation_images/')
 
 
 class LocalizeAccommodation(models.Model):

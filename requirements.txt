@@ -12,3 +12,4 @@ pytest-django==4.9.0
 sqlparse==0.5.2
 tomli==2.2.1
 typing_extensions==4.12.2
+Pillow
