@@ -12,7 +12,7 @@ class LocationAdmin(admin.ModelAdmin):
 class AccommodationImageInline(admin.TabularInline):
     model = AccommodationImage
     extra = 1  # Allow adding one image by default
-
+    
 
 @admin.register(Accommodation)
 class AccommodationAdmin(admin.ModelAdmin):
@@ -33,7 +33,7 @@ class AccommodationAdmin(admin.ModelAdmin):
         "image_preview",
     )
     readonly_fields = ("image_preview",)
-    inlines = [AccommodationImageInline]  # Add inline images
+    inlines = [AccommodationImageInline]
 
     def image_preview(self, obj):
         """Display all uploaded images as thumbnails."""
