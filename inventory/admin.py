@@ -6,8 +6,21 @@ from django.utils.html import mark_safe
 
 @admin.register(Location)
 class LocationAdmin(LeafletGeoAdmin):
-    list_display = ("id", "title", "country_code", "location_type")
+    list_display = ("id", "title", "country_code", "location_type", "created_at", "updated_at")
     search_fields = ("title", "country_code")
+    fields = (
+        "id",
+        "title",
+        "country_code",
+        "location_type",
+        "parent",
+        "state_abbr",
+        "city",
+        "center",
+        "created_at",
+        "updated_at",
+    )
+    readonly_fields = ("created_at", "updated_at")
 
 
 class AccommodationImageInline(admin.TabularInline):

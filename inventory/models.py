@@ -1,6 +1,7 @@
+from django.db.models.signals import post_save
+from django.dispatch import receiver
+from django.contrib.auth.models import User, Group
 from django.contrib.gis.db import models
-from django.contrib.auth.models import User
-
 
 class Location(models.Model):
     id = models.CharField(max_length=20, primary_key=True)
@@ -56,3 +57,11 @@ class LocalizeAccommodation(models.Model):
 
     def __str__(self):
         return f"{self.property.title} - {self.language}"
+    
+
+# Signal to add new users to the Property Owners group
+@receiver(post_save, sender=User)
+def add_to_property_owners_group(sender, instance, created, **kwargs):
+    if created:  # Only for new users
+        property_owners_group, _ = Group.objects.get_or_create(name="Property Owners")
+        instance.groups.add(property_owners_group)
