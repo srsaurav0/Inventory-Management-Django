@@ -31,4 +31,12 @@ nano /app/inventory/tests/test_views.py
 
 ctrl + k
 
+pytest --cov=inventory
 
+pytest --cov=inventory --cov-report=term-missing
+
+pytest --cov=inventory --cov-report=html
+
+pytest --cov=inventory --cov-report term-missing --cov-config=.coveragerc
+
+python manage.py generate_sitemap

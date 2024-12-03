@@ -1,21 +1,22 @@
 from django.contrib import admin
+from leaflet.admin import LeafletGeoAdmin
 from .models import Location, Accommodation, LocalizeAccommodation, AccommodationImage
 from django.utils.html import mark_safe
 
 
 @admin.register(Location)
-class LocationAdmin(admin.ModelAdmin):
-    list_display = ("id", "title", "location_type", "country_code")
+class LocationAdmin(LeafletGeoAdmin):
+    list_display = ("id", "title", "country_code", "location_type")
     search_fields = ("title", "country_code")
 
 
 class AccommodationImageInline(admin.TabularInline):
     model = AccommodationImage
     extra = 1  # Allow adding one image by default
-    
+
 
 @admin.register(Accommodation)
-class AccommodationAdmin(admin.ModelAdmin):
+class AccommodationAdmin(LeafletGeoAdmin):
     list_display = ("id", "title", "country_code", "published", "image_preview")
     search_fields = ("title", "country_code")
     list_filter = ("published", "country_code")

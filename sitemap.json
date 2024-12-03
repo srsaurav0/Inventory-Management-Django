@@ -1,9 +1,20 @@
 [
     {
+        "Canada": "ca",
+        "locations": [
+            {
+                "Ontario": "ca/ontario"
+            },
+            {
+                "Quebec": "ca/quebec"
+            }
+        ]
+    },
+    {
         "USA": "us",
         "locations": [
             {
-                "Florida": "us/florida"
+                "California": "us/california"
             },
             {
                 "Texas": "us/texas"

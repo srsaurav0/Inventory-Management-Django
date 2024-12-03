@@ -43,6 +43,7 @@ INSTALLED_APPS = [
     "django.contrib.staticfiles",
     # Third-party apps
     "django.contrib.gis",
+    "leaflet",
     # Custom apps
     "inventory",
 ]
@@ -56,6 +57,15 @@ MIDDLEWARE = [
     "django.contrib.messages.middleware.MessageMiddleware",
     "django.middleware.clickjacking.XFrameOptionsMiddleware",
 ]
+
+LEAFLET_CONFIG = {
+    'DEFAULT_CENTER': (40.0, -100.0),  # Set a default map center
+    'DEFAULT_ZOOM': 4,                # Set the default zoom level
+    'MAX_ZOOM': 18,                   # Maximum zoom level
+    'MIN_ZOOM': 3,                    # Minimum zoom level
+    'TILES': 'https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png',  # Default map tiles
+    'ATTRIBUTION_PREFIX': 'Powered by <a href="https://leafletjs.com/">Leaflet</a>',
+}
 
 ROOT_URLCONF = "inventory_management.urls"
 
