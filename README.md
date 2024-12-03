@@ -23,6 +23,7 @@ Location.objects.all().delete()
 
 python manage.py shell
 exec(open('inventory/scripts/populate_data.py').read())
+exec(open('inventory/scripts/add_accomodations.py').read())
 
 apt-get update && apt-get install -y nano
 

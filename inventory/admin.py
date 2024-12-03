@@ -50,14 +50,51 @@ class AccommodationAdmin(LeafletGeoAdmin):
             )
         )
 
-    image_preview.allow_tags = True
     image_preview.short_description = "Image Previews"
 
     def save_model(self, request, obj, form, change):
-        """Update JSON images field with all uploaded image URLs."""
-        # Collect all URLs from related AccommodationImage instances
-        obj.images = [img.image_file.url for img in obj.uploaded_images.all()]
+        """Save the Accommodation instance."""
         super().save_model(request, obj, form, change)
+
+    def save_related(self, request, form, formsets, change):
+        """Save related AccommodationImage objects and update the `images` field."""
+        super().save_related(request, form, formsets, change)
+        # Update the `images` JSON field after related objects are saved
+        form.instance.images = [
+            img.image_file.url for img in form.instance.uploaded_images.all()
+        ]
+        form.instance.save()
+
+    def get_queryset(self, request):
+        """Restrict displayed accommodations to those owned by the user."""
+        qs = super().get_queryset(request)
+        if request.user.is_superuser:
+            return qs  # Allow superusers to see all accommodations
+        return qs.filter(user=request.user)
+
+    def has_change_permission(self, request, obj=None):
+        """Restrict update access to the owner of the accommodation."""
+        if request.user.is_superuser:
+            return True  # Superusers can edit anything
+        if obj and obj.user != request.user:
+            return False  # Users cannot edit others' accommodations
+        return True
+
+    # def has_delete_permission(self, request, obj=None):
+    #     """Restrict delete access to the owner of the accommodation."""
+    #     if request.user.is_superuser:
+    #         return True
+    #     if obj and obj.user != request.user:
+    #         return False
+    #     return True
+
+    def has_view_permission(self, request, obj=None):
+        """Restrict view access to the owner of the accommodation."""
+        if request.user.is_superuser:
+            return True
+        if obj and obj.user != request.user:
+            return False
+        return True
 
 
 @admin.register(LocalizeAccommodation)
