@@ -30,13 +30,14 @@ class AccommodationImageInline(admin.TabularInline):
 
 @admin.register(Accommodation)
 class AccommodationAdmin(LeafletGeoAdmin):
-    list_display = ("id", "title", "country_code", "published", "image_preview")
+    list_display = ("id", "title", "country_code", "location_title","published", "image_preview")
     search_fields = ("title", "country_code")
     list_filter = ("published", "country_code")
     fields = (
         "id",
         "title",
         "country_code",
+        "location",
         "bedroom_count",
         "review_score",
         "usd_rate",
@@ -50,6 +51,10 @@ class AccommodationAdmin(LeafletGeoAdmin):
     )
     readonly_fields = ("image_preview", "created_at", "updated_at")
     inlines = [AccommodationImageInline]
+
+    def location_title(self, obj):
+        return obj.location.title
+    location_title.short_description = "Location"
 
     def image_preview(self, obj):
         """Display all uploaded images as thumbnails."""
@@ -69,6 +74,8 @@ class AccommodationAdmin(LeafletGeoAdmin):
 
     def save_model(self, request, obj, form, change):
         """Save the Accommodation instance."""
+        if change and "location" in form.changed_data:  # If the location field is changed
+            obj.country_code = obj.location.country_code
         super().save_model(request, obj, form, change)
 
     def save_related(self, request, form, formsets, change):
