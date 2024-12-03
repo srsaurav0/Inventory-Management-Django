@@ -67,19 +67,16 @@
             background-color: #45a049;
         }
 
-        .form-footer {
-            font-size: 0.8rem;
-            color: #777;
+        .alert {
+            padding: 10px;
             margin-top: 10px;
+            border-radius: 5px;
+            font-size: 0.9rem;
         }
 
-        .form-footer a {
-            color: #4CAF50;
-            text-decoration: none;
-        }
-
-        .form-footer a:hover {
-            text-decoration: underline;
+        .alert-success {
+            background-color: #d4edda;
+            color: #155724;
         }
     </style>
 </head>
@@ -89,9 +86,9 @@
         <form method="post">
             {% csrf_token %}
             {{ form.as_p }}
-
             <button type="submit">Sign Up</button>
         </form>
+
         <div class="messages">
             {% if messages %}
                 {% for message in messages %}
@@ -100,7 +97,7 @@
                     </div>
                 {% endfor %}
             {% endif %}
-        </div>        
+        </div>
     </div>
 </body>
 </html>

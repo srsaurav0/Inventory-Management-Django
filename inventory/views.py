@@ -4,6 +4,7 @@ from django.contrib.auth.models import User, Group
 from django.contrib import messages
 from .forms import PropertyOwnerSignUpForm
 
+
 class PropertyOwnerSignUpView(View):
     template_name = "inventory/signup.html"
 
@@ -25,6 +26,10 @@ class PropertyOwnerSignUpView(View):
             user.groups.add(property_owners_group)
 
             # Add a success message
-            messages.success(request, "Sign-up successful! Welcome to Property Management System.")
+            messages.success(
+                request, "Sign-up successful! Welcome to Property Management System."
+            )
 
+            # Redirect to the admin page
+            return redirect("/admin/")
         return render(request, self.template_name, {"form": form})

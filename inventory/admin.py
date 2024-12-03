@@ -36,6 +36,7 @@ class AccommodationAdmin(LeafletGeoAdmin):
     fields = (
         "id",
         "title",
+        "feed",
         "country_code",
         "location",
         "bedroom_count",

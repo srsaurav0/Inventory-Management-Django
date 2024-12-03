@@ -41,3 +41,15 @@ pytest --cov=inventory --cov-report=html
 pytest --cov=inventory --cov-report term-missing --cov-config=.coveragerc
 
 python manage.py generate_sitemap
+
+
+CREATE TABLE accommodation_feed_1 PARTITION OF accommodation_partitioned FOR VALUES IN (1);
+CREATE TABLE accommodation_feed_2 PARTITION OF accommodation_partitioned FOR VALUES IN (2);
+CREATE TABLE accommodation_feed_3 PARTITION OF accommodation_partitioned FOR VALUES IN (3);
+CREATE TABLE accommodation_feed_4 PARTITION OF accommodation_partitioned FOR VALUES IN (4);
+
+
+RUN PSQL:
+
+docker exec -it <postgres_container_name> bash
+psql -U <postgres_user> <database_name>

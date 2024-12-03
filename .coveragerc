@@ -7,6 +7,7 @@ source = inventory
 omit =
     */migrations/*
     */scripts/*
+    */management/*
 
 # Exclude specific lines of code (e.g., for pragma: no cover)
 exclude_lines =
