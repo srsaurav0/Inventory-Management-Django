@@ -8,7 +8,7 @@ def run():
 
     # Create a new user
     print("Creating or fetching a new user...")
-    user, created = User.objects.get_or_create(username="user2")
+    user, created = User.objects.get_or_create(username="user2", email="user2@gmail.com")
     if created:
         user.set_password("password2")
         user.email

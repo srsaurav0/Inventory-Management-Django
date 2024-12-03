@@ -4,7 +4,7 @@ from django.contrib.gis.geos import Point
 
 def run():
     # Create a user if none exists
-    user, created = User.objects.get_or_create(username="user1")
+    user, created = User.objects.get_or_create(username="user1", email="user1@gmail.com")
     if created:
         user.set_password("password1")
         user.save()
