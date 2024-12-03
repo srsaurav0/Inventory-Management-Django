@@ -44,9 +44,11 @@ class AccommodationAdmin(LeafletGeoAdmin):
         "images",
         "amenities",
         "published",
+        "created_at",
+        "updated_at",
         "image_preview",
     )
-    readonly_fields = ("image_preview",)
+    readonly_fields = ("image_preview", "created_at", "updated_at")
     inlines = [AccommodationImageInline]
 
     def image_preview(self, obj):
