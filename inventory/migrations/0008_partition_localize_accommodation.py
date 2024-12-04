@@ -3,7 +3,7 @@ from django.db import migrations
 class Migration(migrations.Migration):
 
     dependencies = [
-        ('inventory', '0007_add_image_file_field'),  # Replace with your latest migration
+        ('inventory', '0006_auto_partitioning'),  # Replace with your latest migration
     ]
 
     operations = [

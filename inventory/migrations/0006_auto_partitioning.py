@@ -58,8 +58,16 @@ class Migration(migrations.Migration):
             FROM inventory_accommodation_temp;
         """),
 
-        # Step 3.5: Drop the temporary table
+        # Step 3.5: Drop foreign key constraints before dropping the temporary table
         migrations.RunSQL("""
-            DROP TABLE inventory_accommodation_temp;
+            ALTER TABLE inventory_localizeaccommodation 
+            DROP CONSTRAINT inventory_localizeac_property_id_86aa0caa_fk_inventory;
+            ALTER TABLE inventory_accommodationimage 
+            DROP CONSTRAINT inventory_accommodat_accommodation_id_2650e017_fk_inventory;
+        """),
+
+        # Step 3.6: Drop the temporary table
+        migrations.RunSQL("""
+            DROP TABLE inventory_accommodation_temp CASCADE;
         """),
     ]

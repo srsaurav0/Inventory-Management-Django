@@ -128,8 +128,10 @@ class AccommodationAdmin(LeafletGeoAdmin):
     def get_queryset(self, request):
         """Restrict displayed accommodations to those owned by the user."""
         qs = super().get_queryset(request)
+        print(f"Superuser: {request.user.is_superuser}, User: {request.user}")
         if request.user.is_superuser:
             return qs  # Allow superusers to see all accommodations
+        print(f"Filtered Queryset for user {request.user}: {qs.filter(user=request.user)}")
         return qs.filter(user=request.user)
 
     def has_change_permission(self, request, obj=None):
