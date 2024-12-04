@@ -4,14 +4,11 @@
 - [Introduction](#introduction)
 - [Features](#features)
 - [Installation](#installation)
+- [Usage](#usage)
 - [Project Structure](#project-structure)
-- [Database Models](#database-models)
-- [Custom Admin Panel](#custom-admin-panel)
-- [CSV Import](#csv-import)
-- [Custom Permissions](#custom-permissions)
+- [Key Files](#key-files)
 - [Testing](#testing)
-- [Code Coverage](#code-coverage)
-- [License](#license)
+- [Partitioning](#testing)
 
 ---
 
@@ -86,9 +83,10 @@ This Django-based Property Management System (PMS) allows users to manage accomm
 ## Usage
 
 ### Adding Locations via CSV
-1. Navigate to the Django Admin panel.
-2. Click the **Import CSV**"** button for locations.
-3. Upload a properly formatted CSV file named `location_data.csv` in path ***Inventory-Management-Django\location_data.csv***.
+1. Navigate to the Django Admin panel in website `http://localhost:8000/admin/` and log in.
+2. Click the `Locations` tab.
+3. Click the `Import Locations from CSV` button in the top right corner for adding locations.
+4. Upload a properly formatted CSV file named `location_data.csv` in path ***Inventory-Management-Django\location_data.csv***.
 
 ### Generating Sitemap
 Run the command:
@@ -96,3 +94,141 @@ Run the command:
     python manage.py generate_sitemap
    ```
 This creates a `sitemap.json` file in the project root.
+
+### Adding Users and Accommodations using Scripts
+Scripts are located in ***Inventory-Management-Django\inventory\scripts\*** folder.
+Run the command:
+   ```bash
+    python manage.py shell
+    exec(open('inventory/scripts/populate_accommodation.py').read())
+    exec(open('inventory/scripts/populate_accommodation2.py').read())
+    exec(open('inventory/scripts/populate_accommodation3.py').read())
+   ```
+These commands will create 3 users with these **usernames**, **emails** and **passwords**:
+ - **username**: "user5", **email**: "user5@gmail.com", **password**: "password5"
+ - **username**: "user6", **email**: "user6@gmail.com", **password**: "password6"
+ - **username**: "user7", **email**: "user7@gmail.com", **password**: "password7"
+
+ ---
+
+## Project Structure
+
+```bash
+    Inventory-Management-Django/
+    ├── inventory/                # Main app
+    │   ├── admin.py              # Admin panel customization
+    │   ├── models.py             # Database models
+    │   ├── views.py         
+    │   ├── forms.py           
+    │   ├── urls.py          
+    │   ├── tests.py              # Test cases
+    │   ├── templates/            # HTML templates
+    │   │   ├── admin/           
+    │   │   │   └── import_csv.html
+    │   │   │   └── location_change_list.html
+    │   │   ├── inventory/         
+    │   │   │   └── signup.html
+    │   └── migrations/           # Database migrations
+    │
+    ├── inventory_management/     # Main project
+    │   ├── asgi.py        
+    │   ├── settings.py           
+    │   ├── urls.py
+    │   └── wsgi.py
+    │
+    ├── .gitignore
+    ├── Dockerfile
+    ├── docker-compose.yml
+    ├── manage.py 
+    ├── README.md 
+    ├── location_data.csv
+    ├── requirements.txt
+    └── sitemap.json              # Sitemap for location data
+```
+
+---
+
+## Key Files
+
+### Models
+- **Location**: Represents hierarchical locations with geospatial data.
+- **Accommodation**: Stores property data, partitioned by feed.
+- **LocalizeAccommodation**: Supports multilingual property descriptions. Partitioned by *country code*.
+
+### Migrations
+- **0006_auto_partitioning.py**: Implements partitioning for `Accommodation`.
+- **0008_partition_localize_accommodation**: Implements partitioning for LocalizeAccommodation.
+- **0010_change_feed_range.py**: Alters the `feed partitioning range` for Accommodation.
+
+### Admin
+- Enhanced Django Admin for user-friendly property and location management.
+- Inlines for related models like `AccommodationImage`.
+
+
+---
+
+## Testing
+
+### Run Tests
+   ```bash
+    python manage.py test
+   ```
+
+### Code Coverage
+   ```bash
+    coverage run manage.py test inventory
+    coverage report
+   ```
+
+---
+
+## Partitioning
+
+### Partitioning Details
+
+#### Accommodation Table
+- Partitioned by `feed`:
+  - 1-1000: `accommodation_feed_1`
+  - 1001-2000: `accommodation_feed_2`
+  - 2001-3000: `accommodation_feed_3`
+  - 3001+: `accommodation_feed_4`
+
+#### Localize Accommodation Table
+- Partitioned by `language`:
+  - Language-specific partitions (e.g., `en`, `fr`).
+  - Default partition for other languages: `localize_accommodation_others`.
+
+### Evaluate Partitioning
+
+#### Access the PostgreSQL Database
+   ```bash
+    docker exec -it postgres_container bash
+    psql -U user -d inventory_management
+   ```
+#### View Partition Details
+   ```sql
+    \d inventory_accommodation;
+    \d inventory_localizeaccommodation;
+   ```
+#### List All Partitions
+For Accommodation table:
+   ```sql
+    SELECT
+        inhrelid::regclass AS partition_name,
+        inhparent::regclass AS parent_name
+    FROM pg_inherits
+    WHERE inhparent::regclass = 'inventory_accommodation'::regclass;
+   ```
+For LocalizeAccommodation table:
+   ```sql
+    SELECT
+        inhrelid::regclass AS partition_name,
+        inhparent::regclass AS parent_name
+    FROM pg_inherits
+    WHERE inhparent::regclass = 'inventory_localizeaccommodation'::regclass;
+   ```
+#### Check Data Distribution
+   ```sql
+    SELECT * FROM inventory_accommodation PARTITION OF inventory_accommodation FOR VALUES IN (1);
+    SELECT * FROM inventory_localizeaccommodation PARTITION OF inventory_localizeaccommodation FOR VALUES IN ('en');
+   ```
