@@ -1,0 +1,6 @@
+id,title,center,parent_id,location_type,country_code,state_abbr,city
+1,USA,"POINT(-100.0 40.0)",,country,US,,
+2,Canada,"POINT(-106.3468 56.1304)",,country,CA,,
+3,California,"POINT(-119.4179 36.7783)",1,state,US,CA,
+4,Ontario,"POINT(-85.3232 50.0000)",2,state,CA,,
+5,Los Angeles,"POINT(-118.2437 34.0522)",3,city,US,CA,Los Angeles

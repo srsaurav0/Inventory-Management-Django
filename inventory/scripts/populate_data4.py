@@ -8,9 +8,9 @@ def run():
     if created:
         user.set_password("password4")
         user.save()
-        print("User 'user_bangladesh' created.")
+        print("User 'user4' created.")
     else:
-        print("User 'user_bangladesh' already exists.")
+        print("User 'user4' already exists.")
 
     # Create Locations
     countries = [
@@ -50,12 +50,12 @@ def run():
     # Create Accommodations with Amenities
     accommodations = [
         {
-            'id': '36', 'title': 'Luxury Apartment in Dhaka', 'bedroom_count': 3, 'review_score': 4.8, 
+            'id': '36', 'feed': 3023, 'title': 'Luxury Apartment in Dhaka', 'bedroom_count': 3, 'review_score': 4.8, 
             'usd_rate': 200.00, 'location_id': '34', 
             'amenities': ['WiFi', 'Pool', 'City View', 'Parking']
         },
         {
-            'id': '37', 'title': 'Seaside Villa in Chittagong', 'bedroom_count': 4, 'review_score': 4.9, 
+            'id': '37', 'feed': 995, 'title': 'Seaside Villa in Chittagong', 'bedroom_count': 4, 'review_score': 4.9, 
             'usd_rate': 400.00, 'location_id': '35',
             'amenities': ['WiFi', 'Ocean View', 'BBQ Area', 'Air Conditioning']
         },
@@ -64,12 +64,12 @@ def run():
     for acc in accommodations:
         location = Location.objects.get(id=acc['location_id'])
         Accommodation.objects.get_or_create(
-            id=acc['id'], title=acc['title'], country_code=location.country_code,
+            id=acc['id'], feed=acc['feed'], title=acc['title'], country_code=location.country_code,
             bedroom_count=acc['bedroom_count'], review_score=acc['review_score'],
             usd_rate=acc['usd_rate'], center=location.center, location=location, 
             user=user, amenities=acc['amenities']
         )
 
-    print("Data population completed successfully for user_bangladesh!")
+    print("Data population completed successfully for user4!")
 
 run()

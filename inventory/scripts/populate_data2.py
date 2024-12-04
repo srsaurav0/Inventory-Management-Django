@@ -33,6 +33,7 @@ def run():
     accommodations = [
         {
             "id": "21",
+            'feed': 2025,
             "title": "Modern Apartment in LA",
             "bedroom_count": 2,
             "review_score": 4.2,
@@ -43,6 +44,7 @@ def run():
         },
         {
             "id": "22",
+            'feed': 3005,
             "title": "Luxury Condo in Toronto",
             "bedroom_count": 3,
             "review_score": 4.9,
@@ -53,6 +55,7 @@ def run():
         },
         {
             "id": "23",
+            'feed': 1500,
             "title": "Spacious Villa in Houston",
             "bedroom_count": 4,
             "review_score": 4.7,
@@ -66,6 +69,7 @@ def run():
     for acc in accommodations:
         Accommodation.objects.get_or_create(
             id=acc["id"],
+            feed=acc['feed'],
             title=acc["title"],
             country_code=acc["location"].country_code,
             bedroom_count=acc["bedroom_count"],

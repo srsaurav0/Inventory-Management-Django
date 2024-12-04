@@ -55,12 +55,12 @@ def run():
     # Create Accommodations with Amenities
     accommodations = [
         {
-            'id': '11', 'title': 'Luxury Apartment in LA', 'bedroom_count': 3, 'review_score': 4.8, 
+            'id': '11', 'feed': 100, 'title': 'Luxury Apartment in LA', 'bedroom_count': 3, 'review_score': 4.8, 
             'usd_rate': 250.00, 'location_id': '7', 
             'amenities': ['WiFi', 'Pool', 'Air Conditioning', 'Parking']
         },
         {
-            'id': '12', 'title': 'Cozy Condo in Toronto', 'bedroom_count': 2, 'review_score': 4.5, 
+            'id': '12', 'feed': 2000, 'title': 'Cozy Condo in Toronto', 'bedroom_count': 2, 'review_score': 4.5, 
             'usd_rate': 180.00, 'location_id': '9',
             'amenities': ['WiFi', 'Gym', 'Elevator', 'Pet Friendly']
         },
@@ -69,7 +69,7 @@ def run():
     for acc in accommodations:
         location = Location.objects.get(id=acc['location_id'])
         Accommodation.objects.get_or_create(
-            id=acc['id'], title=acc['title'], country_code=location.country_code,
+            id=acc['id'], feed=acc['feed'], title=acc['title'], country_code=location.country_code,
             bedroom_count=acc['bedroom_count'], review_score=acc['review_score'],
             usd_rate=acc['usd_rate'], center=location.center, location=location, 
             user=user, amenities=acc['amenities']

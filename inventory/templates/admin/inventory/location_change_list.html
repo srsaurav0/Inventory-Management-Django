@@ -1,0 +1,11 @@
+{% extends "admin/change_list.html" %}
+
+{% block object-tools %}
+    <div class="object-tools">
+        {% url "admin:location_import_csv" as import_csv_url %}
+        <li>
+            <a href="{{ import_csv_url }}">Import Locations from CSV</a>
+        </li>
+        {{ block.super }}
+    </div>
+{% endblock %}

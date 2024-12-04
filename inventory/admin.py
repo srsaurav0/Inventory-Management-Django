@@ -1,4 +1,8 @@
-from django.contrib import admin
+import csv
+from django.urls import path
+from django.shortcuts import render
+from django.http import HttpResponseRedirect
+from django.contrib import admin, messages
 from leaflet.admin import LeafletGeoAdmin
 from .models import Location, Accommodation, LocalizeAccommodation, AccommodationImage
 from django.utils.html import mark_safe
@@ -8,6 +12,39 @@ from django.utils.html import mark_safe
 class LocationAdmin(LeafletGeoAdmin):
     list_display = ("id", "title", "country_code", "location_type", "created_at", "updated_at")
     search_fields = ("title", "country_code")
+    change_list_template = "admin/inventory/location_change_list.html"
+
+    def get_urls(self):
+        urls = super().get_urls()
+        custom_urls = [
+            path('import-csv/', self.import_csv, name="location_import_csv"),
+        ]
+        return custom_urls + urls
+
+    def import_csv(self, request):
+        if request.method == "POST":
+            csv_file = request.FILES["csv_file"]
+            try:
+                decoded_file = csv_file.read().decode("utf-8")
+                reader = csv.DictReader(decoded_file.splitlines())
+                for row in reader:
+                    Location.objects.create(
+                        id=row["id"],
+                        title=row["title"],
+                        center=row["center"],  # Make sure this is in WKT or compatible format
+                        location_type=row["location_type"],
+                        country_code=row["country_code"],
+                        state_abbr=row.get("state_abbr", ""),
+                        city=row.get("city", ""),
+                    )
+                self.message_user(request, "Locations imported successfully!", level=messages.SUCCESS)
+            except Exception as e:
+                self.message_user(request, f"Error importing locations: {e}", level=messages.ERROR)
+
+            return HttpResponseRedirect("../")  # Redirect back to the admin page
+
+        return render(request, "admin/inventory/import_csv.html", context={})
+
     fields = (
         "id",
         "title",
