@@ -1,6 +1,91 @@
 id,title,center,parent_id,location_type,country_code,state_abbr,city
-1,USA,"POINT(-100.0 40.0)",,country,US,,
+1,USA,"POINT(-100.0000 40.0000)",,country,US,,
 2,Canada,"POINT(-106.3468 56.1304)",,country,CA,,
-3,California,"POINT(-119.4179 36.7783)",1,state,US,CA,
-4,Ontario,"POINT(-85.3232 50.0000)",2,state,CA,,
-5,Los Angeles,"POINT(-118.2437 34.0522)",3,city,US,CA,Los Angeles
+3,Mexico,"POINT(-102.5528 23.6345)",,country,MX,,
+4,California,"POINT(-119.4179 36.7783)",1,state,US,CA,
+5,Texas,"POINT(-99.9018 31.9686)",1,state,US,TX,
+6,Ontario,"POINT(-85.3232 50.0000)",2,state,CA,,
+7,Quebec,"POINT(-71.2082 46.8139)",2,state,CA,,
+8,Los Angeles,"POINT(-118.2437 34.0522)",4,city,US,CA,Los Angeles
+9,Houston,"POINT(-95.3698 29.7604)",5,city,US,TX,Houston
+10,Toronto,"POINT(-79.3832 43.6532)",6,city,CA,,Toronto
+11,Montreal,"POINT(-73.5673 45.5017)",7,city,CA,,Montreal
+12,New York,"POINT(-74.0060 40.7128)",1,city,US,,New York
+13,Chicago,"POINT(-87.6298 41.8781)",1,city,US,,Chicago
+14,San Francisco,"POINT(-122.4194 37.7749)",4,city,US,CA,San Francisco
+15,San Diego,"POINT(-117.1611 32.7157)",4,city,US,CA,San Diego
+16,Dallas,"POINT(-96.7970 32.7767)",5,city,US,TX,Dallas
+17,Austin,"POINT(-97.7431 30.2672)",5,city,US,TX,Austin
+18,Vancouver,"POINT(-123.1216 49.2827)",6,city,CA,,Vancouver
+19,Ottawa,"POINT(-75.6972 45.4215)",6,city,CA,,Ottawa
+20,Edmonton,"POINT(-113.4909 53.5461)",6,city,CA,,Edmonton
+21,Calgary,"POINT(-114.0719 51.0447)",6,city,CA,,Calgary
+22,Seattle,"POINT(-122.3321 47.6062)",1,city,US,,Seattle
+23,Denver,"POINT(-104.9903 39.7392)",1,city,US,,Denver
+24,Boston,"POINT(-71.0589 42.3601)",1,city,US,,Boston
+25,Miami,"POINT(-80.1918 25.7617)",1,city,US,,Miami
+26,Orlando,"POINT(-81.3792 28.5383)",1,city,US,,Orlando
+27,Tampa,"POINT(-82.4572 27.9506)",1,city,US,,Tampa
+28,Atlanta,"POINT(-84.3880 33.7490)",1,city,US,,Atlanta
+29,Nashville,"POINT(-86.7816 36.1627)",1,city,US,,Nashville
+30,Las Vegas,"POINT(-115.1398 36.1699)",1,city,US,,Las Vegas
+31,Phoenix,"POINT(-112.0740 33.4484)",1,city,US,,Phoenix
+32,Philadelphia,"POINT(-75.1652 39.9526)",1,city,US,,Philadelphia
+33,Washington,"POINT(-77.0369 38.9072)",1,city,US,,Washington
+34,Baltimore,"POINT(-76.6122 39.2904)",1,city,US,,Baltimore
+35,Detroit,"POINT(-83.0458 42.3314)",1,city,US,,Detroit
+36,Pittsburgh,"POINT(-79.9959 40.4406)",1,city,US,,Pittsburgh
+37,Charlotte,"POINT(-80.8431 35.2271)",1,city,US,,Charlotte
+38,San Jose,"POINT(-121.8863 37.3382)",4,city,US,CA,San Jose
+39,Sacramento,"POINT(-121.4944 38.5816)",4,city,US,CA,Sacramento
+40,Portland,"POINT(-122.6765 45.5051)",1,city,US,,Portland
+41,San Antonio,"POINT(-98.4936 29.4241)",5,city,US,TX,San Antonio
+42,El Paso,"POINT(-106.4850 31.7619)",5,city,US,TX,El Paso
+43,Ft Worth,"POINT(-97.3308 32.7555)",5,city,US,TX,Ft Worth
+44,Halifax,"POINT(-63.5724 44.6488)",7,city,CA,,Halifax
+45,Winnipeg,"POINT(-97.1384 49.8951)",6,city,CA,,Winnipeg
+46,Quebec City,"POINT(-71.2072 46.8139)",7,city,CA,,Quebec City
+47,London,"POINT(-0.1278 51.5074)",,country,GB,,London
+48,Sydney,"POINT(151.2093 -33.8688)",,country,AU,,Sydney
+49,Melbourne,"POINT(144.9631 -37.8136)",,country,AU,,Melbourne
+50,Brisbane,"POINT(153.0251 -27.4698)",,country,AU,,Brisbane
+51,China,"POINT(104.1954 35.8617)",,country,CN,,
+52,India,"POINT(78.9629 20.5937)",,country,IN,,
+53,Japan,"POINT(138.2529 36.2048)",,country,JP,,
+54,South Korea,"POINT(127.7669 35.9078)",,country,KR,,
+55,Pakistan,"POINT(69.3451 30.3753)",,country,PK,,
+56,Bangladesh,"POINT(90.3563 23.6850)",,country,BD,,
+57,Indonesia,"POINT(113.9213 -0.7893)",,country,ID,,
+58,Thailand,"POINT(100.9925 15.8700)",,country,TH,,
+59,Malaysia,"POINT(101.9758 4.2105)",,country,MY,,
+60,Singapore,"POINT(103.8198 1.3521)",,country,SG,,
+61,Vietnam,"POINT(108.2772 14.0583)",,country,VN,,
+62,Philippines,"POINT(121.7740 12.8797)",,country,PH,,
+63,Nepal,"POINT(84.1240 28.3949)",,country,NP,,
+64,Sri Lanka,"POINT(80.7718 7.8731)",,country,LK,,
+65,Myanmar,"POINT(95.9562 21.9162)",,country,MM,,
+66,Laos,"POINT(102.4955 19.8563)",,country,LA,,
+67,Cambodia,"POINT(104.9910 12.5657)",,country,KH,,
+68,Brunei,"POINT(114.7277 4.5353)",,country,BN,,
+69,Bhutan,"POINT(90.4336 27.5142)",,country,BT,,
+70,Maldives,"POINT(73.2207 3.2028)",,country,MV,,
+71,Beijing,"POINT(116.4074 39.9042)",51,city,CN,,Beijing
+72,Shanghai,"POINT(121.4737 31.2304)",51,city,CN,,Shanghai
+73,Mumbai,"POINT(72.8777 19.0760)",52,city,IN,,Mumbai
+74,Delhi,"POINT(77.1025 28.7041)",52,city,IN,,Delhi
+75,Tokyo,"POINT(139.6917 35.6895)",53,city,JP,,Tokyo
+76,Osaka,"POINT(135.5022 34.6937)",53,city,JP,,Osaka
+77,Seoul,"POINT(126.9780 37.5665)",54,city,KR,,Seoul
+78,Karachi,"POINT(67.0011 24.8607)",55,city,PK,,Karachi
+79,Dhaka,"POINT(90.4125 23.8103)",56,city,BD,,Dhaka
+80,Jakarta,"POINT(106.8456 -6.2088)",57,city,ID,,Jakarta
+81,Bangkok,"POINT(100.5018 13.7563)",58,city,TH,,Bangkok
+82,Kuala Lumpur,"POINT(101.6869 3.1390)",59,city,MY,,Kuala Lumpur
+83,Hanoi,"POINT(105.8544 21.0285)",61,city,VN,,Hanoi
+84,Manila,"POINT(120.9842 14.5995)",62,city,PH,,Manila
+85,Kathmandu,"POINT(85.3240 27.7172)",63,city,NP,,Kathmandu
+86,Colombo,"POINT(79.8612 6.9271)",64,city,LK,,Colombo
+87,Yangon,"POINT(96.1951 16.8661)",65,city,MM,,Yangon
+88,Vientiane,"POINT(102.6341 17.9757)",66,city,LA,,Vientiane
+89,Phnom Penh,"POINT(104.9160 11.5621)",67,city,KH,,Phnom Penh
+90,Malé,"POINT(73.5089 4.1755)",70,city,MV,,Malé
