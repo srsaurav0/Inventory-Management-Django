@@ -1,75 +1,59 @@
-python3 -m venv .venv
-source .venv/bin/activate
+# Property Management System - Django Application
 
-pip install django psycopg2-binary
+## Table of Contents
+- [Introduction](#introduction)
+- [Features](#features)
+- [Installation](#installation)
+- [Project Structure](#project-structure)
+- [Database Models](#database-models)
+- [Custom Admin Panel](#custom-admin-panel)
+- [CSV Import](#csv-import)
+- [Custom Permissions](#custom-permissions)
+- [Testing](#testing)
+- [Code Coverage](#code-coverage)
+- [License](#license)
 
-docker-compose up --build
-docker compose down
+---
 
+## Introduction
 
-docker exec -it django_web bash
+This Django-based Property Management System (PMS) allows users to manage accommodations and locations while providing a custom admin interface. It includes features such as CSV import, geospatial data handling with Leaflet, and advanced user-specific permissions.
 
-python manage.py makemigrations
-python manage.py migrate
+---
 
-python manage.py createsuperuser
+## Features
 
-http://localhost:8000/signup/
-http://localhost:8000/admin/
+- **CRUD Operations** for locations and accommodations.
+- **Custom Admin Panel** for importing locations from CSV files.
+- **Geospatial Data Handling** with Django's `PostGIS` and Leaflet integration.
+- **Custom Permissions** to restrict access based on ownership.
+- **Image Uploads and Previews** for accommodations.
+- **Partitioned Tables** for optimized database handling.
+- **Testing with Coverage** using `pytest` and `coverage`.
 
+---
 
-Accommodation.objects.all().delete()
-Location.objects.all().delete()
+## Installation
 
-python manage.py shell
-exec(open('inventory/scripts/populate_data.py').read())
-exec(open('inventory/scripts/add_accomodations.py').read())
+### Prerequisites
+- Python 3.9 or higher
+- PostgreSQL with PostGIS
+- Virtual environment (recommended)
 
-apt-get update && apt-get install -y nano
-
-nano /app/inventory/tests/test_models.py
-nano /app/inventory/tests/test_views.py
-
-ctrl + k
-
-pytest --cov=inventory
-
-pytest --cov=inventory --cov-report=term-missing
-
-pytest --cov=inventory --cov-report=html
-
-pytest --cov=inventory --cov-report term-missing --cov-config=.coveragerc
-
-python manage.py generate_sitemap
-
-
-CREATE TABLE accommodation_feed_1 PARTITION OF accommodation_partitioned FOR VALUES IN (1);
-CREATE TABLE accommodation_feed_2 PARTITION OF accommodation_partitioned FOR VALUES IN (2);
-CREATE TABLE accommodation_feed_3 PARTITION OF accommodation_partitioned FOR VALUES IN (3);
-CREATE TABLE accommodation_feed_4 PARTITION OF accommodation_partitioned FOR VALUES IN (4);
-
-
-RUN PSQL:
-
-docker exec -it <postgres_container_name> bash
-psql -U <postgres_user> <database_name>
-
-psql -U user -d inventory_management
-
-
-asgiref==3.8.1
-coverage==7.6.8
-Django==4.2.16
-exceptiongroup==1.2.2
-iniconfig==2.0.0
-packaging==24.2
-pluggy==1.5.0
-psycopg2-binary==2.9.10
-pytest==8.3.3
-pytest-cov==6.0.0
-pytest-django==4.9.0
-sqlparse==0.5.2
-tomli==2.2.1
-typing_extensions==4.12.2
-Pillow
-django-leaflet
+### Steps
+1. Clone the repository:
+   ```bash
+    git clone https://github.com/your-repository/property-management-system.git
+    cd property-management-system
+   ```
+2. Create and activate a virtual environment:
+   ```bash
+    python -m venv .venv
+    source .venv/bin/activate  # On Windows: .venv\Scripts\activate
+   ```
+   On Windows:
+   ```bash
+    python -m venv .venv
+    Set-ExecutionPolicy -Scope Process -ExecutionPolicy Bypass
+    .venv\Scripts\activate
+   ```
