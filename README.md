@@ -109,6 +109,18 @@ These commands will create 3 users with these **usernames**, **emails** and **pa
  - **username**: "user6", **email**: "user6@gmail.com", **password**: "password6"
  - **username**: "user7", **email**: "user7@gmail.com", **password**: "password7"
 
+### Approving Users
+1. Visit `http://localhost:8000/admin/` and log in as an admin.
+2. Click on the `Users` and see if the `Staff Status` is active (Green Tick).
+3. If not (Red Cross), then enter into his profile by clicking the `Username`.
+4. Click the staff status to turn it on. Also, check if permissions to **add**, **change** and **view** *accommodation* and *accommodationimages* are provided. If not, then select these 6 permissions and click on the right arrow beside them.
+5. Click the `save` button at the bottom of the page.
+
+### Log In as User
+1. Log out from the admin account and log in as an user with username and password.
+2. To create a new user account, a user can visit page `http://localhost:8000` and sign in. A user can't sign in until his/her staff status is approved.
+3. After logging in, the user can view, edit or add only in the accommodation table that are uploaded by him. This condition is handled inside `admin.py` file.
+
  ---
 
 ## Project Structure
