@@ -28,16 +28,18 @@ This Django-based Property Management System (PMS) allows users to manage accomm
 - **Geospatial Data Handling** with Django's `PostGIS` and Leaflet integration.
 - **Custom Permissions** to restrict access based on ownership.
 - **Image Uploads and Previews** for accommodations.
+- **Dynamic Sitemap Generation** for all locations and their nested hierarchies.
 - **Partitioned Tables** for optimized database handling.
-- **Testing with Coverage** using `pytest` and `coverage`.
+- **Testing with Coverage** using `django.test`.
+- **Integration** of `Docker` for seamless deployment.
 
 ---
 
 ## Installation
 
 ### Prerequisites
-- Python 3.9 or higher
-- PostgreSQL with PostGIS
+- Python 3.9 or higher (Check with command `python3 --version`)
+- Docker & Docker-Compose (Check with command `docker-compose --version`)
 - Virtual environment (recommended)
 
 ### Steps
@@ -57,3 +59,40 @@ This Django-based Property Management System (PMS) allows users to manage accomm
     Set-ExecutionPolicy -Scope Process -ExecutionPolicy Bypass
     .venv\Scripts\activate
    ```
+3. Build and run docker:
+   ```bash
+    docker-compose up --build
+   ```
+   This will start two images named:
+   - django_web
+   - postgres_container
+4. Apply migrations:
+   Open another terminal apply migrations inside docker container.
+   ```bash
+    docker exec -it django_web bash
+    python manage.py migrate
+   ```
+5. Create a Superuser:
+   ```bash
+    python manage.py createsuperuser
+   ```
+6. Access the Application:
+   - Admin panel: `http://localhost:8000/admin/`
+   - User panel: `http://localhost:8000/`
+
+
+---
+
+## Usage
+
+### Adding Locations via CSV
+1. Navigate to the Django Admin panel.
+2. Click the **Import CSV**"** button for locations.
+3. Upload a properly formatted CSV file named `location_data.csv` in path ***Inventory-Management-Django\location_data.csv***.
+
+### Generating Sitemap
+Run the command:
+   ```bash
+    python manage.py generate_sitemap
+   ```
+This creates a `sitemap.json` file in the project root.
