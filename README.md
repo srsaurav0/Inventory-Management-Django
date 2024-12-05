@@ -118,7 +118,7 @@ These commands will create 6 users with these **usernames**, **emails** and **pa
  - **username**: "user7", **email**: "user7@gmail.com", **password**: "password7"
 
 It will also create localize accommodation entries.
-Run command `python manage.py generate_sitemap` to create an updated **sitemap.json**
+Run command `python manage.py generate_sitemap` to create an updated **sitemap.json**.
 
 ### Approving Users
 1. Visit `http://localhost:8000/admin/` and log in as an admin.
