@@ -109,6 +109,9 @@ Run the command:
     exec(open('inventory/scripts/populate_data4.py').read())
    ```
 These commands will create 3 users with these **usernames**, **emails** and **passwords**:
+ - **username**: "user1", **email**: "user1@gmail.com", **password**: "password1"
+ - **username**: "user3", **email**: "user3@gmail.com", **password**: "password3"
+ - **username**: "user4", **email**: "user4@gmail.com", **password**: "password4"
  - **username**: "user5", **email**: "user5@gmail.com", **password**: "password5"
  - **username**: "user6", **email**: "user6@gmail.com", **password**: "password6"
  - **username**: "user7", **email**: "user7@gmail.com", **password**: "password7"
@@ -196,6 +199,7 @@ These commands will create 3 users with these **usernames**, **emails** and **pa
    ```bash
     python manage.py test
    ```
+   If a message appears in console: `Type 'yes' if you would like to try deleting the test database 'test_inventory_management', or 'no' to cancel:`, then enter `yes`.
 
 ### Code Coverage
    ```bash
@@ -252,6 +256,12 @@ For LocalizeAccommodation table:
    ```
 #### Check Data Distribution
    ```sql
-    SELECT * FROM inventory_accommodation PARTITION OF inventory_accommodation FOR VALUES IN (1);
-    SELECT * FROM inventory_localizeaccommodation PARTITION OF inventory_localizeaccommodation FOR VALUES IN ('en');
+    SELECT * FROM accommodation_feed_1;
+    SELECT * FROM accommodation_feed_2;
+    SELECT * FROM accommodation_feed_3;
+    SELECT * FROM accommodation_feed_4;
+    SELECT * FROM localize_accommodation_en;
+    SELECT * FROM localize_accommodation_es;
+    SELECT * FROM localize_accommodation_bd;
+    SELECT * FROM localize_accommodation_fr;
    ```
