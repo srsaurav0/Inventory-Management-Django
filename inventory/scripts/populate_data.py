@@ -14,22 +14,22 @@ def run():
 
     # Create Locations
     countries = [
-        {'id': '1', 'title': 'USA', 'center': Point(-100.0, 40.0), 'country_code': 'US'},
-        {'id': '2', 'title': 'Canada', 'center': Point(-106.3468, 56.1304), 'country_code': 'CA'},
+        {'id': '501', 'title': 'USA', 'center': Point(-100.0, 40.0), 'country_code': 'US'},
+        {'id': '502', 'title': 'Canada', 'center': Point(-106.3468, 56.1304), 'country_code': 'CA'},
     ]
 
     states = [
-        {'id': '3', 'title': 'California', 'center': Point(-119.4179, 36.7783), 'parent_id': '1', 'country_code': 'US'},
-        {'id': '4', 'title': 'Texas', 'center': Point(-99.9018, 31.9686), 'parent_id': '1', 'country_code': 'US'},
-        {'id': '5', 'title': 'Ontario', 'center': Point(-85.3232, 50.0000), 'parent_id': '2', 'country_code': 'CA'},
-        {'id': '6', 'title': 'Quebec', 'center': Point(-71.2082, 46.8139), 'parent_id': '2', 'country_code': 'CA'},
+        {'id': '503', 'title': 'California', 'center': Point(-119.4179, 36.7783), 'parent_id': '1', 'country_code': 'US'},
+        {'id': '504', 'title': 'Texas', 'center': Point(-99.9018, 31.9686), 'parent_id': '1', 'country_code': 'US'},
+        {'id': '505', 'title': 'Ontario', 'center': Point(-85.3232, 50.0000), 'parent_id': '2', 'country_code': 'CA'},
+        {'id': '506', 'title': 'Quebec', 'center': Point(-71.2082, 46.8139), 'parent_id': '2', 'country_code': 'CA'},
     ]
 
     cities = [
-        {'id': '7', 'title': 'Los Angeles', 'center': Point(-118.2437, 34.0522), 'parent_id': '3', 'country_code': 'US'},
-        {'id': '8', 'title': 'Houston', 'center': Point(-95.3698, 29.7604), 'parent_id': '4', 'country_code': 'US'},
-        {'id': '9', 'title': 'Toronto', 'center': Point(-79.3832, 43.6532), 'parent_id': '5', 'country_code': 'CA'},
-        {'id': '10', 'title': 'Montreal', 'center': Point(-73.5673, 45.5017), 'parent_id': '6', 'country_code': 'CA'},
+        {'id': '507', 'title': 'Los Angeles', 'center': Point(-118.2437, 34.0522), 'parent_id': '3', 'country_code': 'US'},
+        {'id': '508', 'title': 'Houston', 'center': Point(-95.3698, 29.7604), 'parent_id': '4', 'country_code': 'US'},
+        {'id': '509', 'title': 'Toronto', 'center': Point(-79.3832, 43.6532), 'parent_id': '5', 'country_code': 'CA'},
+        {'id': '510', 'title': 'Montreal', 'center': Point(-73.5673, 45.5017), 'parent_id': '6', 'country_code': 'CA'},
     ]
 
     for country in countries:
@@ -55,12 +55,12 @@ def run():
     # Create Accommodations with Amenities
     accommodations = [
         {
-            'id': '11', 'feed': 100, 'title': 'Luxury Apartment in LA', 'bedroom_count': 3, 'review_score': 4.8, 
+            'id': '511', 'feed': 100, 'title': 'Luxury Apartment in LA', 'bedroom_count': 3, 'review_score': 4.8, 
             'usd_rate': 250.00, 'location_id': '7', 
             'amenities': ['WiFi', 'Pool', 'Air Conditioning', 'Parking']
         },
         {
-            'id': '12', 'feed': 2000, 'title': 'Cozy Condo in Toronto', 'bedroom_count': 2, 'review_score': 4.5, 
+            'id': '512', 'feed': 2000, 'title': 'Cozy Condo in Toronto', 'bedroom_count': 2, 'review_score': 4.5, 
             'usd_rate': 180.00, 'location_id': '9',
             'amenities': ['WiFi', 'Gym', 'Elevator', 'Pet Friendly']
         },

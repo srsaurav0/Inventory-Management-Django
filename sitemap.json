@@ -1,91 +1,148 @@
 [
     {
         "Australia": "au",
-        "locations": [
-            {
-                "New South Wales": "au/new-south-wales",
-                "locations": [
-                    {
-                        "Sydney": "au/new-south-wales/sydney"
-                    }
-                ]
-            }
-        ]
+        "locations": []
     },
     {
         "Bangladesh": "bd",
-        "locations": [
-            {
-                "Chittagong Division": "bd/chittagong-division",
-                "locations": [
-                    {
-                        "Chittagong": "bd/chittagong-division/chittagong"
-                    }
-                ]
-            },
-            {
-                "Dhaka Division": "bd/dhaka-division",
-                "locations": [
-                    {
-                        "Dhaka": "bd/dhaka-division/dhaka"
-                    }
-                ]
-            }
-        ]
+        "locations": []
+    },
+    {
+        "Bangladesh": "bd",
+        "locations": []
+    },
+    {
+        "Bhutan": "bt",
+        "locations": []
+    },
+    {
+        "Brisbane": "au",
+        "locations": []
+    },
+    {
+        "Brunei": "bn",
+        "locations": []
+    },
+    {
+        "Cambodia": "kh",
+        "locations": []
     },
     {
         "Canada": "ca",
         "locations": [
             {
-                "Ontario": "ca/ontario",
-                "locations": [
-                    {
-                        "Toronto": "ca/ontario/toronto"
-                    }
-                ]
+                "Ontario": "ca/ontario"
             },
             {
-                "Quebec": "ca/quebec",
-                "locations": [
-                    {
-                        "Montreal": "ca/quebec/montreal"
-                    }
-                ]
+                "Quebec": "ca/quebec"
             }
         ]
     },
     {
-        "UK": "gb",
+        "Canada": "ca",
+        "locations": []
+    },
+    {
+        "China": "cn",
+        "locations": []
+    },
+    {
+        "India": "in",
+        "locations": []
+    },
+    {
+        "Indonesia": "id",
+        "locations": []
+    },
+    {
+        "Japan": "jp",
+        "locations": []
+    },
+    {
+        "Laos": "la",
+        "locations": []
+    },
+    {
+        "London": "gb",
+        "locations": []
+    },
+    {
+        "Malaysia": "my",
+        "locations": []
+    },
+    {
+        "Maldives": "mv",
+        "locations": []
+    },
+    {
+        "Melbourne": "au",
+        "locations": []
+    },
+    {
+        "Mexico": "mx",
         "locations": [
             {
-                "England": "gb/england",
-                "locations": [
-                    {
-                        "London": "gb/england/london"
-                    }
-                ]
+                "Los Angeles": "mx/los-angeles"
             }
         ]
+    },
+    {
+        "Myanmar": "mm",
+        "locations": []
+    },
+    {
+        "Nepal": "np",
+        "locations": []
+    },
+    {
+        "Pakistan": "pk",
+        "locations": []
+    },
+    {
+        "Philippines": "ph",
+        "locations": []
+    },
+    {
+        "Singapore": "sg",
+        "locations": []
+    },
+    {
+        "South Korea": "kr",
+        "locations": []
+    },
+    {
+        "Sri Lanka": "lk",
+        "locations": []
+    },
+    {
+        "Sydney": "au",
+        "locations": []
+    },
+    {
+        "Thailand": "th",
+        "locations": []
+    },
+    {
+        "UK": "gb",
+        "locations": []
+    },
+    {
+        "USA": "us",
+        "locations": []
     },
     {
         "USA": "us",
         "locations": [
             {
-                "California": "us/california",
-                "locations": [
-                    {
-                        "Los Angeles": "us/california/los-angeles"
-                    }
-                ]
+                "California": "us/california"
             },
             {
-                "Texas": "us/texas",
-                "locations": [
-                    {
-                        "Houston": "us/texas/houston"
-                    }
-                ]
+                "Texas": "us/texas"
             }
         ]
+    },
+    {
+        "Vietnam": "vn",
+        "locations": []
     }
 ]

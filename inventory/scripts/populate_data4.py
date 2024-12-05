@@ -14,17 +14,17 @@ def run():
 
     # Create Locations
     countries = [
-        {'id': '31', 'title': 'Bangladesh', 'center': Point(90.4125, 23.8103), 'country_code': 'BD'},
+        {'id': '631', 'title': 'Bangladesh', 'center': Point(90.4125, 23.8103), 'country_code': 'BD'},
     ]
 
     states = [
-        {'id': '32', 'title': 'Dhaka Division', 'center': Point(90.4125, 23.8103), 'parent_id': '31', 'country_code': 'BD'},
-        {'id': '33', 'title': 'Chittagong Division', 'center': Point(91.7832, 22.3569), 'parent_id': '31', 'country_code': 'BD'},
+        {'id': '632', 'title': 'Dhaka Division', 'center': Point(90.4125, 23.8103), 'parent_id': '31', 'country_code': 'BD'},
+        {'id': '633', 'title': 'Chittagong Division', 'center': Point(91.7832, 22.3569), 'parent_id': '31', 'country_code': 'BD'},
     ]
 
     cities = [
-        {'id': '34', 'title': 'Dhaka', 'center': Point(90.4125, 23.8103), 'parent_id': '32', 'country_code': 'BD'},
-        {'id': '35', 'title': 'Chittagong', 'center': Point(91.7832, 22.3569), 'parent_id': '33', 'country_code': 'BD'},
+        {'id': '634', 'title': 'Dhaka', 'center': Point(90.4125, 23.8103), 'parent_id': '32', 'country_code': 'BD'},
+        {'id': '635', 'title': 'Chittagong', 'center': Point(91.7832, 22.3569), 'parent_id': '33', 'country_code': 'BD'},
     ]
 
     for country in countries:
@@ -50,12 +50,12 @@ def run():
     # Create Accommodations with Amenities
     accommodations = [
         {
-            'id': '36', 'feed': 3023, 'title': 'Luxury Apartment in Dhaka', 'bedroom_count': 3, 'review_score': 4.8, 
+            'id': '636', 'feed': 3023, 'title': 'Luxury Apartment in Dhaka', 'bedroom_count': 3, 'review_score': 4.8, 
             'usd_rate': 200.00, 'location_id': '34', 
             'amenities': ['WiFi', 'Pool', 'City View', 'Parking']
         },
         {
-            'id': '37', 'feed': 995, 'title': 'Seaside Villa in Chittagong', 'bedroom_count': 4, 'review_score': 4.9, 
+            'id': '637', 'feed': 995, 'title': 'Seaside Villa in Chittagong', 'bedroom_count': 4, 'review_score': 4.9, 
             'usd_rate': 400.00, 'location_id': '35',
             'amenities': ['WiFi', 'Ocean View', 'BBQ Area', 'Air Conditioning']
         },

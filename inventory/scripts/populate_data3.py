@@ -14,18 +14,18 @@ def run():
 
     # Create Locations
     countries = [
-        {'id': '21', 'title': 'UK', 'center': Point(-3.435973, 55.378051), 'country_code': 'GB'},
-        {'id': '22', 'title': 'Australia', 'center': Point(133.775136, -25.274398), 'country_code': 'AU'},
+        {'id': '621', 'title': 'UK', 'center': Point(-3.435973, 55.378051), 'country_code': 'GB'},
+        {'id': '622', 'title': 'Australia', 'center': Point(133.775136, -25.274398), 'country_code': 'AU'},
     ]
 
     states = [
-        {'id': '23', 'title': 'England', 'center': Point(-1.17432, 52.355518), 'parent_id': '21', 'country_code': 'GB'},
-        {'id': '24', 'title': 'New South Wales', 'center': Point(151.2093, -33.8688), 'parent_id': '22', 'country_code': 'AU'},
+        {'id': '623', 'title': 'England', 'center': Point(-1.17432, 52.355518), 'parent_id': '21', 'country_code': 'GB'},
+        {'id': '624', 'title': 'New South Wales', 'center': Point(151.2093, -33.8688), 'parent_id': '22', 'country_code': 'AU'},
     ]
 
     cities = [
-        {'id': '25', 'title': 'London', 'center': Point(-0.127758, 51.507351), 'parent_id': '23', 'country_code': 'GB'},
-        {'id': '26', 'title': 'Sydney', 'center': Point(151.2093, -33.8688), 'parent_id': '24', 'country_code': 'AU'},
+        {'id': '625', 'title': 'London', 'center': Point(-0.127758, 51.507351), 'parent_id': '23', 'country_code': 'GB'},
+        {'id': '626', 'title': 'Sydney', 'center': Point(151.2093, -33.8688), 'parent_id': '24', 'country_code': 'AU'},
     ]
 
     for country in countries:
@@ -51,12 +51,12 @@ def run():
     # Create Accommodations with Amenities
     accommodations = [
         {
-            'id': '27', 'feed': 507, 'title': 'Modern Flat in London', 'bedroom_count': 2, 'review_score': 4.7, 
+            'id': '627', 'feed': 507, 'title': 'Modern Flat in London', 'bedroom_count': 2, 'review_score': 4.7, 
             'usd_rate': 300.00, 'location_id': '25', 
             'amenities': ['WiFi', 'Heating', 'City View', 'Parking']
         },
         {
-            'id': '28', 'feed': 2003, 'title': 'Beachside Villa in Sydney', 'bedroom_count': 4, 'review_score': 5.0, 
+            'id': '628', 'feed': 2003, 'title': 'Beachside Villa in Sydney', 'bedroom_count': 4, 'review_score': 5.0, 
             'usd_rate': 500.00, 'location_id': '26',
             'amenities': ['WiFi', 'Pool', 'Ocean View', 'BBQ Area']
         },

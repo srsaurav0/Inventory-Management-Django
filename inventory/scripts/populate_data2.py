@@ -32,7 +32,7 @@ def run():
     # Add Accommodations
     accommodations = [
         {
-            "id": "21",
+            "id": "521",
             'feed': 2025,
             "title": "Modern Apartment in LA",
             "bedroom_count": 2,
@@ -43,7 +43,7 @@ def run():
             "images": ["https://example.com/images/la_modern1.jpg"],
         },
         {
-            "id": "22",
+            "id": "522",
             'feed': 3005,
             "title": "Luxury Condo in Toronto",
             "bedroom_count": 3,
@@ -54,7 +54,7 @@ def run():
             "images": ["https://example.com/images/toronto_luxury1.jpg"],
         },
         {
-            "id": "23",
+            "id": "523",
             'feed': 1500,
             "title": "Spacious Villa in Houston",
             "bedroom_count": 4,

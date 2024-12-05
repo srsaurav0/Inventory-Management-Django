@@ -42,13 +42,14 @@ This Django-based Property Management System (PMS) allows users to manage accomm
 ### Steps
 1. Clone the repository:
    ```bash
-    git clone https://github.com/your-repository/property-management-system.git
-    cd property-management-system
+    git clone https://github.com/srsaurav0/Inventory-Management-Django.git
+    cd Inventory-Management-Django
    ```
 2. Create and activate a virtual environment:
+   On Linux:
    ```bash
-    python -m venv .venv
-    source .venv/bin/activate  # On Windows: .venv\Scripts\activate
+    python3 -m venv .venv
+    source .venv/bin/activate
    ```
    On Windows:
    ```bash
@@ -64,7 +65,7 @@ This Django-based Property Management System (PMS) allows users to manage accomm
    - django_web
    - postgres_container
 4. Apply migrations:
-   Open another terminal apply migrations inside docker container.
+   Open another terminal and enter the virtual environment (.venv) similarly like before. Then apply migrations inside docker container.
    ```bash
     docker exec -it django_web bash
     python manage.py migrate
@@ -74,8 +75,8 @@ This Django-based Property Management System (PMS) allows users to manage accomm
     python manage.py createsuperuser
    ```
 6. Access the Application:
-   - Admin panel: `http://localhost:8000/admin/`
-   - User panel: `http://localhost:8000/`
+   - Admin panel: `localhost:8000/admin/`
+   - User panel: `localhost:8000`
 
 
 ---
@@ -83,7 +84,7 @@ This Django-based Property Management System (PMS) allows users to manage accomm
 ## Usage
 
 ### Adding Locations via CSV
-1. Navigate to the Django Admin panel in website `http://localhost:8000/admin/` and log in.
+1. Navigate to the Django Admin panel in website `localhost:8000/admin/` and log in.
 2. Click the `Locations` tab.
 3. Click the `Import Locations from CSV` button in the top right corner for adding locations.
 4. Upload a properly formatted CSV file named `location_data.csv` in path ***Inventory-Management-Django\location_data.csv***.
@@ -103,6 +104,9 @@ Run the command:
     exec(open('inventory/scripts/populate_accommodation.py').read())
     exec(open('inventory/scripts/populate_accommodation2.py').read())
     exec(open('inventory/scripts/populate_accommodation3.py').read())
+    exec(open('inventory/scripts/populate_data.py').read())
+    exec(open('inventory/scripts/populate_data3.py').read())
+    exec(open('inventory/scripts/populate_data4.py').read())
    ```
 These commands will create 3 users with these **usernames**, **emails** and **passwords**:
  - **username**: "user5", **email**: "user5@gmail.com", **password**: "password5"
@@ -119,7 +123,14 @@ These commands will create 3 users with these **usernames**, **emails** and **pa
 ### Log In as User
 1. Log out from the admin account and log in as an user with username and password.
 2. To create a new user account, a user can visit page `http://localhost:8000` and sign in. A user can't sign in until his/her staff status is approved.
-3. After logging in, the user can view, edit or add only in the accommodation table that are uploaded by him. This condition is handled inside `admin.py` file.
+3. A user can log in from the admin login page which is `http://localhost:8000/admin/`.
+4. After logging in, the user can view, edit or add only in the accommodation table that are uploaded by him. This condition is handled inside `admin.py` file.
+
+### Viewing Property and Adding Images in Accommodation
+1. First log in as user from `http://localhost:8000/admin/`.
+2. Now a user can see all the accommodations uploaded by that user only. Selecet any accomodation to view the property and add images.
+3. Navigate to the bottom portion of the page to find a field named **ACCOMMODATION IMAGES**. Initially there is only one option to upload an image. But the user can click the button **Add another Accommodation image** to add more images.
+4. Click the **SAVE** button and then the images will be added. Additionally, urls will be generated for those images and saved inside the `Images` field.
 
  ---
 
