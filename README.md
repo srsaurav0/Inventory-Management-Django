@@ -107,14 +107,17 @@ Run the command:
     exec(open('inventory/scripts/populate_data.py').read())
     exec(open('inventory/scripts/populate_data3.py').read())
     exec(open('inventory/scripts/populate_data4.py').read())
+    exec(open('inventory/scripts/populate_la.py').read())
    ```
-These commands will create 3 users with these **usernames**, **emails** and **passwords**:
+These commands will create 6 users with these **usernames**, **emails** and **passwords**:
  - **username**: "user1", **email**: "user1@gmail.com", **password**: "password1"
  - **username**: "user3", **email**: "user3@gmail.com", **password**: "password3"
  - **username**: "user4", **email**: "user4@gmail.com", **password**: "password4"
  - **username**: "user5", **email**: "user5@gmail.com", **password**: "password5"
  - **username**: "user6", **email**: "user6@gmail.com", **password**: "password6"
  - **username**: "user7", **email**: "user7@gmail.com", **password**: "password7"
+
+It will also create localize accommodation entries.
 
 ### Approving Users
 1. Visit `http://localhost:8000/admin/` and log in as an admin.
